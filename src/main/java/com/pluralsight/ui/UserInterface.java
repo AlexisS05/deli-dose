@@ -1,8 +1,13 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.drink.Drink;
+import com.pluralsight.drink.DrinkName;
+import com.pluralsight.drink.DrinkSize;
 import com.pluralsight.order.Order;
 import com.pluralsight.sandwich.BreadType;
 import com.pluralsight.utils.Utils;
+
+import java.util.Scanner;
 
 public class UserInterface {
     public void homeScreen() {
@@ -71,6 +76,19 @@ public class UserInterface {
     }
 
     private void addDrink(Order order) {
+        System.out.println("What size of the drink would you prefer?");
+        System.out.println("Size options include: small, medium and large");
+        Scanner scanner = new Scanner(System.in);
+        String size = scanner.next().toUpperCase();
+        System.out.println("What beverage do you prefer?");
+        System.out.println("Options include: coke, sprite, ginger ale, water");
+        String drinkName = scanner.next().toUpperCase();
+        System.out.println(size);
+        System.out.println(drinkName);
+        DrinkName nameOfDrink = DrinkName.valueOf(drinkName);
+        DrinkSize sizeOfDrink = DrinkSize.valueOf(size);
+        Drink sizeAndName = new Drink(sizeOfDrink, nameOfDrink);
+        System.out.println(sizeAndName);
     }
 
     private void addChips(Order order) {

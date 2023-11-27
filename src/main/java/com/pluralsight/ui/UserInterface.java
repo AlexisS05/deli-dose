@@ -1,5 +1,7 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.chips.Chips;
+import com.pluralsight.chips.ChipsName;
 import com.pluralsight.drink.Drink;
 import com.pluralsight.drink.DrinkName;
 import com.pluralsight.drink.DrinkSize;
@@ -92,5 +94,12 @@ public class UserInterface {
     }
 
     private void addChips(Order order) {
+        System.out.println("which chips you would like to select");
+        System.out.println("Lays,Pringles,Doritos,Cheetos");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine().toUpperCase().trim();
+        System.out.println(userInput);
+        ChipsName chipsName = ChipsName.valueOf(userInput);
+        Chips chip = new Chips(chipsName);
     }
 }

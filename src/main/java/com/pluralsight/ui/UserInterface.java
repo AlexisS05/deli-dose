@@ -6,7 +6,7 @@ import com.pluralsight.utils.Utils;
 
 public class UserInterface {
     public void homeScreen() {
-        System.out.println("Welcome to the Deli Sandwiches");
+        System.out.println("Welcome to the Deli Dose the best sandwiches in the world!");
 
         while (true) {
             System.out.println("Would you like to do? \n 1) Make Order \n X) Exit");

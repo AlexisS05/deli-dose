@@ -34,6 +34,7 @@ select their favorite bread, add regular and premium toppings, choose to toast t
 - The order confirmation screen indicates the overall cost of the entire order. 
 - Successfully placed orders are stored in a designated "receipts" folder. 
 - Each order generates a unique receipt file, named according to the date and time of the order.
+<<<<<<< HEAD
  
 ## Getting Started
 
@@ -57,3 +58,6 @@ select their favorite bread, add regular and premium toppings, choose to toast t
 
  Happy coding and enjoy creating a seamless ordering experience for DeliDose customers!
 
+=======
+![UML Diagram](https://github.com/SleamanAbdelhadi/deli-dose/assets/147070134/b904a3e0-99ab-4560-aa74-d2e7b2eafba5)
+>>>>>>> 25140f9e66eb4beb10cc0856ef74871c1737aebd

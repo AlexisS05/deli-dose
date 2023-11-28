@@ -4,7 +4,6 @@ import com.pluralsight.order.OrderInterface;
 import com.pluralsight.toppings.Topping;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Sandwich implements OrderInterface {
@@ -50,6 +49,7 @@ public class Sandwich implements OrderInterface {
     public boolean isToasted() {
         return isToasted;
     }
+
 
     @Override
     public String getStringDetails() {

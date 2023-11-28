@@ -78,6 +78,7 @@ public class UserInterface {
                     System.out.println("Please enter a valid bread choice (1, 2, 3, or 4): ");
             }
         }
+        System.out.println(bread);
 
         while (size == null){
             System.out.println("Select size of Sandwich: \n 1) Four \n 2) Eight \n 3) Twelve");

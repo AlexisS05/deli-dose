@@ -8,7 +8,7 @@ import com.pluralsight.drink.DrinkSize;
 import com.pluralsight.order.Order;
 import com.pluralsight.sandwich.BreadType;
 import com.pluralsight.sandwich.Sandwich;
-import com.pluralsight.sandwich.SanwichSize;
+import com.pluralsight.sandwich.SandwichSize;
 import com.pluralsight.utils.Utils;
 
 import java.util.Scanner;
@@ -57,7 +57,7 @@ public class UserInterface {
 
     private void addSandwich(Order order) {
         BreadType bread = null;
-        SanwichSize size = null;
+        SandwichSize size = null;
         while (bread == null) {
             System.out.println("Select your bread choice: \n 1) WHITE \n 2) WHEAT \n 3) RYE \n 4) WRAP");
             char breadChoice = Utils.getCharInput();
@@ -85,13 +85,13 @@ public class UserInterface {
             char sizeChoice = Utils.getCharInput();
             switch (sizeChoice){
                 case '1':
-                    size = SanwichSize.FOUR;
+                    size = SandwichSize.FOUR;
                     break;
                 case '2':
-                    size = SanwichSize.EIGHT;
+                    size = SandwichSize.EIGHT;
                     break;
                 case '3':
-                    size = SanwichSize.TWELVE;
+                    size = SandwichSize.TWELVE;
                     break;
                 default:
                     System.out.println("Choose an appropriate sandwich size.");

@@ -9,12 +9,12 @@ import java.util.List;
 public class Sandwich implements OrderInterface {
     private double price;
     private BreadType breadType;
-    private SanwichSize size;
+    private SandwichSize size;
     private boolean isToasted;
     private static List<Topping> toppings;
     private static List<Topping> extras;
 
-    public Sandwich(BreadType breadType, SanwichSize size) {
+    public Sandwich(BreadType breadType, SandwichSize size) {
         this.breadType = breadType;
         this.size = size;
         toppings = new ArrayList<>();
@@ -31,9 +31,9 @@ public class Sandwich implements OrderInterface {
 
     public double getPrice() {
         switch (size){
-            case FOUR -> price = SanwichSize.FOUR.getPrice();
-            case EIGHT -> price = SanwichSize.EIGHT.getPrice();
-            case TWELVE -> price = SanwichSize.TWELVE.getPrice();
+            case FOUR -> price = SandwichSize.FOUR.getPrice();
+            case EIGHT -> price = SandwichSize.EIGHT.getPrice();
+            case TWELVE -> price = SandwichSize.TWELVE.getPrice();
         }
         return price;
     }
@@ -42,7 +42,7 @@ public class Sandwich implements OrderInterface {
         return breadType;
     }
 
-    public SanwichSize getSize() {
+    public SandwichSize getSize() {
         return size;
     }
 

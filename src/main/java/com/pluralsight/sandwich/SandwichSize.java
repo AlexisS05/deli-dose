@@ -1,6 +1,6 @@
 package com.pluralsight.sandwich;
 
-public enum SanwichSize {
+public enum SandwichSize {
     FOUR(5.50), EIGHT(7.00), TWELVE(8.50);
     private final double price;
 
@@ -8,7 +8,7 @@ public enum SanwichSize {
         return price;
     }
 
-    SanwichSize(double price) {
+    SandwichSize(double price) {
         this.price = price;
 
     }

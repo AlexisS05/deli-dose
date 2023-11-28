@@ -6,6 +6,8 @@ import com.pluralsight.drink.Drink;
 import com.pluralsight.drink.DrinkName;
 import com.pluralsight.drink.DrinkSize;
 import com.pluralsight.order.Order;
+import com.pluralsight.order.OrderFileManager;
+import com.pluralsight.order.OrderInterface;
 import com.pluralsight.sandwich.BreadType;
 import com.pluralsight.sandwich.Sandwich;
 import com.pluralsight.sandwich.SandwichSize;
@@ -48,6 +50,8 @@ public class UserInterface {
                 case '3':
                     addChips(order);
                     break;
+                case '4':
+                    checkout(order);
                 default:
                     System.out.println("Please try again! ");
             }
@@ -153,5 +157,18 @@ public class UserInterface {
         System.out.println(userInput);
         ChipsName chipsName = ChipsName.valueOf(userInput);
         Chips chip = new Chips(chipsName);
+    }
+
+    private void checkout(Order order){
+        System.out.println("Your Order: ");
+        for (OrderInterface item : order.getItems()
+        ) {
+            System.out.println(item.getStringDetails());
+        }
+        String choice = Utils.getStringInput("Would you like to confirm order? Yes/No ");
+        if(choice.equalsIgnoreCase("y")){
+            OrderFileManager ofm = new OrderFileManager(order);
+            ofm.saveToTXTFile();
+        }
     }
 }

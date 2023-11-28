@@ -12,4 +12,18 @@ public class Utils {
             return getCharInput();
         }
     }
+
+    public static String getStringInput(String prompt) {
+        String input;
+
+        System.out.println(prompt);
+        input = scanner.nextLine().trim();
+
+        while (input.isEmpty()) {
+            System.out.println("Invalid input. Please enter a non-empty input: ");
+            input = scanner.nextLine().trim();
+        }
+
+        return input;
+    }
 }

@@ -106,11 +106,21 @@ public class UserInterface {
         Topping topping = Topping.values()[option -1];
         System.out.println(topping);
         Sandwich.addTopping(topping);
+        System.out.println("Would you like to add extra Meat? Y/N");
+        String choose = scanner.next();
+        if (choose.equalsIgnoreCase("y")){
+            Sandwich.addExtra(topping);
+        }
         System.out.println("Here are our cheese options: \n 7) American, \n 8) Provolone, \n 9) Cheddar, \n 10) Swiss");
         int cheeseOption = scanner.nextInt();
         Topping cheeseTopping = Topping.values()[cheeseOption -1];
         System.out.println(cheeseTopping);
         Sandwich.addTopping(cheeseTopping);
+        System.out.println("Would you like to add extra cheese? Y/N");
+        String extraCheese = scanner.next();
+        if (extraCheese.equalsIgnoreCase("y")){
+            Sandwich.addExtra(cheeseTopping);
+        }
         System.out.println(sandwich.getStringDetails());
 
     }

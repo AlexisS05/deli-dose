@@ -75,6 +75,7 @@ public class UserInterface {
                     System.out.println("Please enter a valid bread choice (1, 2, 3, or 4): ");
             }
         }
+        System.out.println(bread);
     }
 
     private void addDrink(Order order) {

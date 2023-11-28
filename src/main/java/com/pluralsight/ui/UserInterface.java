@@ -121,8 +121,12 @@ public class UserInterface {
         if (extraCheese.equalsIgnoreCase("y")){
             Sandwich.addExtra(cheeseTopping);
         }
+        System.out.println("Here are some regular toppings: \n 11) Lettuce, \n 12) Peppers, \n 13) Onions") ;
+        int regularOptions = scanner.nextInt();
+        Topping regularToppings  = Topping.values()[regularOptions -1];
+        System.out.println(regularToppings);
+        Sandwich.addTopping(regularToppings);
         System.out.println(sandwich.getStringDetails());
-
     }
 
     private void addDrink(Order order) {

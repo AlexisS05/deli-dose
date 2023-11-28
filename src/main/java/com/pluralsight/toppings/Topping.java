@@ -9,8 +9,6 @@ public enum Topping {
     CHICKEN(ToppingType.MEAT, 2.00, 1.00, 2.00, 3.00),
     BACON(ToppingType.MEAT, 2.50, 1.00, 2.00, 3.00),
 
-    // Extra Meat
-    EXTRA_MEAT(ToppingType.EXTRA, 3.00, 0.50, 1.00, 1.50),
 
     // Cheese
     AMERICAN(ToppingType.CHEESE, 1.50, 0.75, 1.50, 2.25),
@@ -20,6 +18,9 @@ public enum Topping {
 
     // Extra Cheese
     EXTRA_CHEESE(ToppingType.EXTRA, 2.00, 0.30, 0.60, 0.90),
+
+    // Extra Meat
+    EXTRA_MEAT(ToppingType.EXTRA, 3.00, 0.50, 1.00, 1.50),
 
     // Regular Toppings
     LETTUCE(ToppingType.REGULAR, 0.50),

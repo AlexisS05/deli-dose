@@ -9,6 +9,7 @@ import com.pluralsight.order.Order;
 import com.pluralsight.sandwich.BreadType;
 import com.pluralsight.sandwich.Sandwich;
 import com.pluralsight.sandwich.SandwichSize;
+import com.pluralsight.toppings.Topping;
 import com.pluralsight.utils.Utils;
 
 import java.util.Scanner;
@@ -98,7 +99,20 @@ public class UserInterface {
             }
         }
         Sandwich sandwich = new Sandwich(bread, size);
+        System.out.println("Here are our meat toppings: \n 1) Steak \n 2) ham " +
+                "\n 3) salami \n 4) roast beef \n 5) chicken \n 6) bacon");
+        Scanner scanner = new Scanner(System.in);
+        int option = scanner.nextInt();
+        Topping topping = Topping.values()[option -1];
+        System.out.println(topping);
+        Sandwich.addTopping(topping);
+        System.out.println("Here are our cheese options: \n 7) American, \n 8) Provolone, \n 9) Cheddar, \n 10) Swiss");
+        int cheeseOption = scanner.nextInt();
+        Topping cheeseTopping = Topping.values()[cheeseOption -1];
+        System.out.println(cheeseTopping);
+        Sandwich.addTopping(cheeseTopping);
         System.out.println(sandwich.getStringDetails());
+
     }
 
     private void addDrink(Order order) {

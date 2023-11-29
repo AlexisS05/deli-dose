@@ -48,13 +48,12 @@ select their favorite bread, add regular and premium toppings, choose to toast t
  
  ## Class Diagram
 
- Include a visual representation of your class diagram in the `docs` directory of your IntelliJ project.
- Update it as necessary throughout the development process.
+ 
 
  ## Notes
 
  - This README serves as a guide to understanding and contributing to the project.
- - If you have any questions or need clarification, feel free to reach out to the project lead.
+
 
  Happy coding and enjoy creating a seamless ordering experience for DeliDose customers!
 

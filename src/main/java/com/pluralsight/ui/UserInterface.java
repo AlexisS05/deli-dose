@@ -140,27 +140,29 @@ public class UserInterface {
         System.out.println(sauceToppings);
         Sandwich.addTopping(sauceToppings);
         //Sides not completed yet
-        System.out.println("I'm pretty sure you need some sides with that, how about these: \n 28) au jus \n 29) sauce");
-        int sideOptions = scanner.nextInt();
-        Topping sideToppings = Topping.values()[sideOptions -1];
-        Sandwich.addTopping(sideToppings);
+        //System.out.println("I'm pretty sure you need some sides with that, how about these: \n 28) au jus \n 29) sauce");
+        //int sideOptions = scanner.nextInt();
+        //Topping sideToppings = Topping.values()[sideOptions -1];
+        //Sandwich.addTopping(sideToppings);
         System.out.println(sandwich.getStringDetails());
         order.addItem(sandwich);
     }
 
     private void addDrink(Order order) {
         System.out.println("What size of the drink would you prefer?");
-        System.out.println("Size options include: Small, Medium and Large");
+        System.out.println("Size options include: \n 1) Small \n 2) Medium \n 3) Large");
         Scanner scanner = new Scanner(System.in);
-        String size = scanner.next().toUpperCase();
+        int size = scanner.nextInt();
+        DrinkSize drinks = DrinkSize.values()[size - 1];
         System.out.println("What beverage do you prefer?");
-        System.out.println("Options include: \n Coke \n Sprite \n Ginger ale \n Water");
-        String drinkName = scanner.next().toUpperCase();
-        System.out.println(size);
-        System.out.println(drinkName);
-        DrinkName nameOfDrink = DrinkName.valueOf(drinkName);
-        DrinkSize sizeOfDrink = DrinkSize.valueOf(size);
-        Drink sizeAndName = new Drink(sizeOfDrink, nameOfDrink);
+        System.out.println("Options include: \n 1) Coke \n 2) Sprite \n 3) Ginger ale \n 4) Water");
+        int drinkName = scanner.nextInt();
+        DrinkName drinkChoice = DrinkName.values()[drinkName - 1];
+        System.out.println(drinks);
+        System.out.println(drinkChoice);
+        //DrinkName nameOfDrink = DrinkName.valueOf(drinkName);
+        //DrinkSize sizeOfDrink = DrinkSize.valueOf(size);
+        Drink sizeAndName = new Drink(drinks, drinkChoice);
         System.out.println(sizeAndName);
         order.addItem(sizeAndName);
     }

@@ -21,7 +21,7 @@ public class UserInterface {
         System.out.println("Welcome to the Deli Dose the best sandwiches in the world!");
 
         while (true) {
-            System.out.println("Would you like to do? \n 1) Make Order \n 0) Exit");
+            System.out.println("What would you like to do? \n 1) Make Order \n 0) Exit");
             char choice = Utils.getCharInput();
             switch (choice) {
                 case '1':
@@ -158,10 +158,6 @@ public class UserInterface {
         System.out.println("Options include: \n 1) Coke \n 2) Sprite \n 3) Ginger ale \n 4) Water");
         int drinkName = scanner.nextInt();
         DrinkName drinkChoice = DrinkName.values()[drinkName - 1];
-        System.out.println(drinks);
-        System.out.println(drinkChoice);
-        //DrinkName nameOfDrink = DrinkName.valueOf(drinkName);
-        //DrinkSize sizeOfDrink = DrinkSize.valueOf(size);
         Drink sizeAndName = new Drink(drinks, drinkChoice);
         System.out.println(sizeAndName);
         order.addItem(sizeAndName);
@@ -169,11 +165,10 @@ public class UserInterface {
 
     private void addChips(Order order) {
         System.out.println("which chips you would like to select");
-        System.out.println("Lays \n Pringles \n Doritos \n Cheetos");
+        System.out.println("\n 1) Lays \n 2) Pringles \n 3) Doritos \n 4) Cheetos");
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine().toUpperCase().trim();
-        System.out.println(userInput);
-        ChipsName chipsName = ChipsName.valueOf(userInput);
+        int userInput = scanner.nextInt();
+        ChipsName chipsName = ChipsName.values()[userInput -1];
         Chips chip = new Chips(chipsName);
         order.addItem(chip);
     }

@@ -86,7 +86,7 @@ public class UserInterface {
         System.out.println(bread);
 
         while (size == null){
-            System.out.println("Select size of Sandwich: \n 1) Four \n 2) Eight \n 3) Twelve");
+            System.out.println("Select size of Sandwich: \n 1) Four Inches \n 2) Eight Inches \n 3) Twelve Inches");
             char sizeChoice = Utils.getCharInput();
             switch (sizeChoice){
                 case '1':
@@ -115,7 +115,7 @@ public class UserInterface {
         if (choose.equalsIgnoreCase("y")){
             Sandwich.addExtra(topping);
         }
-        System.out.println("Here are our cheese options: \n 7) American, \n 8) Provolone, \n 9) Cheddar, \n 10) Swiss");
+        System.out.println("Here are our cheese options: \n 7) American \n 8) Provolone \n 9) Cheddar \n 10) Swiss");
         int cheeseOption = scanner.nextInt();
         Topping cheeseTopping = Topping.values()[cheeseOption -1];
         System.out.println(cheeseTopping);
@@ -125,21 +125,34 @@ public class UserInterface {
         if (extraCheese.equalsIgnoreCase("y")){
             Sandwich.addExtra(cheeseTopping);
         }
-        System.out.println("Here are some regular toppings: \n 11) Lettuce, \n 12) Peppers, \n 13) Onions") ;
+        System.out.println("Here are some regular toppings: \n 11) Lettuce \n 12) Peppers \n 13) Onions " +
+                "\n 14) Tomatoes \n 15) Jalapenos \n 16) Cucumbers \n 17) Pickles \n 18) Guacamole \n 19) Mushrooms") ;
         int regularOptions = scanner.nextInt();
         Topping regularToppings  = Topping.values()[regularOptions -1];
         System.out.println(regularToppings);
         Sandwich.addTopping(regularToppings);
+        // Sauces
+        System.out.println("I know you don't want no dry sandwich, Here are some options: \n 20) Mayo \n 21) Mustard " +
+                "\n 22) Ketchup \n 23) Ranch \n 24) Thousand Islands \n 25) Vinaigrette");
+        int sauceOptions = scanner.nextInt();
+        Topping sauceToppings = Topping.values()[sauceOptions -1];
+        System.out.println(sauceToppings);
+        Sandwich.addTopping(sauceToppings);
+        //Sides not completed yet
+        System.out.println("I'm pretty sure you need some sides with that, how about these: \n 26) au jus \n 27) sauce");
+        int sideOptions = scanner.nextInt();
+        Topping sideToppings = Topping.values()[sideOptions -1];
+        Sandwich.addTopping(sideToppings);
         System.out.println(sandwich.getStringDetails());
     }
 
     private void addDrink(Order order) {
         System.out.println("What size of the drink would you prefer?");
-        System.out.println("Size options include: small, medium and large");
+        System.out.println("Size options include: Small, Medium and Large");
         Scanner scanner = new Scanner(System.in);
         String size = scanner.next().toUpperCase();
         System.out.println("What beverage do you prefer?");
-        System.out.println("Options include: coke, sprite, ginger ale, water");
+        System.out.println("Options include: \n Coke, \n Sprite, \n Ginger ale, \n Water");
         String drinkName = scanner.next().toUpperCase();
         System.out.println(size);
         System.out.println(drinkName);
@@ -151,7 +164,7 @@ public class UserInterface {
 
     private void addChips(Order order) {
         System.out.println("which chips you would like to select");
-        System.out.println("Lays,Pringles,Doritos,Cheetos");
+        System.out.println("Lays, \n Pringles, \n Doritos, \n Cheetos");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine().toUpperCase().trim();
         System.out.println(userInput);

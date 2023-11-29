@@ -29,6 +29,9 @@ public class UserInterface {
                     break;
                 case '0':
                     System.exit(0);
+                    break;
+                default:
+                    System.out.println("Please try again");
             }
         }
     }
@@ -60,7 +63,6 @@ public class UserInterface {
     }
 
 
-
     private void addSandwich(Order order) {
         BreadType bread = null;
         SandwichSize size = null;
@@ -86,10 +88,10 @@ public class UserInterface {
         }
         System.out.println(bread);
 
-        while (size == null){
+        while (size == null) {
             System.out.println("Select size of Sandwich: \n 1) Four Inches \n 2) Eight Inches \n 3) Twelve Inches");
             char sizeChoice = Utils.getCharInput();
-            switch (sizeChoice){
+            switch (sizeChoice) {
                 case '1':
                     size = SandwichSize.FOUR;
                     break;
@@ -104,41 +106,51 @@ public class UserInterface {
             }
         }
         Sandwich sandwich = new Sandwich(bread, size);
-        System.out.println("Here are our meat toppings: \n 1) Steak \n 2) ham " +
-                "\n 3) salami \n 4) roast beef \n 5) chicken \n 6) bacon");
-        Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
-        Topping topping = Topping.values()[option -1];
-        System.out.println(topping);
-        Sandwich.addTopping(topping);
-        System.out.println("Would you like to add extra Meat? Y/N");
-        String choose = scanner.next();
-        if (choose.equalsIgnoreCase("y")){
-            Sandwich.addExtra(topping);
+        // Meat
+        String meatChoice = Utils.getStringInput("Would you like to add Meat? Y/N");
+        if (meatChoice.equalsIgnoreCase("y")) {
+            int meatOption = Utils.getIntInput("Here are our meat toppings: \n 1) Steak \n 2) ham " +
+                    "\n 3) salami \n 4) roast beef \n 5) chicken \n 6) bacon", 0, 7);
+            Topping topping = Topping.values()[meatOption - 1];
+            Sandwich.addTopping(topping);
+            String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
+            if (extraChoice.equalsIgnoreCase("y")) {
+                Sandwich.addExtra(topping);
+            }
         }
-        System.out.println("Here are our cheese options: \n 7) American \n 8) Provolone \n 9) Cheddar \n 10) Swiss");
-        int cheeseOption = scanner.nextInt();
-        Topping cheeseTopping = Topping.values()[cheeseOption -1];
-        System.out.println(cheeseTopping);
-        Sandwich.addTopping(cheeseTopping);
-        System.out.println("Would you like to add extra cheese? Y/N");
-        String extraCheese = scanner.next();
-        if (extraCheese.equalsIgnoreCase("y")){
-            Sandwich.addExtra(cheeseTopping);
+        // Cheese
+        String cheeseChoice = Utils.getStringInput("Would you like to add Cheese? Y/N");
+        if (cheeseChoice.equalsIgnoreCase("y")) {
+            int cheeseOption = Utils.getIntInput("Here are our cheese options: \n 7) American \n 8) Provolone \n 9) Cheddar \n 10) Swiss", 6, 11);
+            Topping cheeseTopping = Topping.values()[cheeseOption - 1];
+            Sandwich.addTopping(cheeseTopping);
+            String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
+            if (extraCheese.equalsIgnoreCase("y")) {
+                Sandwich.addExtra(cheeseTopping);
+            }
         }
-        System.out.println("Here are some regular toppings: \n 13) Lettuce \n 14) Peppers \n 15) Onions " +
-                "\n 16) Tomatoes \n 17) Jalapenos \n 18) Cucumbers \n 19) Pickles \n 20) Guacamole \n 21) Mushrooms") ;
-        int regularOptions = scanner.nextInt();
-        Topping regularToppings  = Topping.values()[regularOptions -1];
-        System.out.println(regularToppings);
-        Sandwich.addTopping(regularToppings);
+        // Topping
+        String toppingChoice = Utils.getStringInput("Would you like to add Toppings? Y/N");
+        if (toppingChoice.equalsIgnoreCase("y")) {
+            int regularOptions = Utils.getIntInput("Here are some regular toppings: \n 13) Lettuce \n 14) Peppers \n 15) Onions " +
+                    "\n 16) Tomatoes \n 17) Jalapenos \n 18) Cucumbers \n 19) Pickles \n 20) Guacamole \n 21) Mushrooms", 12, 22);
+            Topping regularToppings = Topping.values()[regularOptions - 1];
+            Sandwich.addTopping(regularToppings);
+        }
         // Sauces
-        System.out.println("I know you don't want no dry sandwich, Here are some options: \n 22) Mayo \n 23) Mustard " +
-                "\n 24) Ketchup \n 25) Ranch \n 26) Thousand Islands \n 27) Vinaigrette");
-        int sauceOptions = scanner.nextInt();
-        Topping sauceToppings = Topping.values()[sauceOptions -1];
-        System.out.println(sauceToppings);
-        Sandwich.addTopping(sauceToppings);
+        String sauceChoice = Utils.getStringInput("Would you like to add any Sauce? Y/N");
+        if (sauceChoice.equalsIgnoreCase("y")) {
+            int sauceOptions = Utils.getIntInput("I know you don't want no dry sandwich, Here are some options: \n 22) Mayo \n 23) Mustard " +
+                    "\n 24) Ketchup \n 25) Ranch \n 26) Thousand Islands \n 27) Vinaigrette", 21, 28);
+            Topping sauceToppings = Topping.values()[sauceOptions - 1];
+            Sandwich.addTopping(sauceToppings);
+        }
+
+        // Toasted
+        String toastChoice = Utils.getStringInput("Would you like it Toasted? Y/N");
+        sandwich.setToasted(toastChoice.equalsIgnoreCase("y"));
+
+
         //Sides not completed yet
         //System.out.println("I'm pretty sure you need some sides with that, how about these: \n 28) au jus \n 29) sauce");
         //int sideOptions = scanner.nextInt();
@@ -150,39 +162,42 @@ public class UserInterface {
 
     private void addDrink(Order order) {
         System.out.println("What size of the drink would you prefer?");
-        System.out.println("Size options include: \n 1) Small \n 2) Medium \n 3) Large");
-        Scanner scanner = new Scanner(System.in);
-        int size = scanner.nextInt();
-        DrinkSize drinks = DrinkSize.values()[size - 1];
+        int drinkSize = Utils.getIntInput("Size options include: \n 1) Small \n 2) Medium \n 3) Large", 0, 4);
+        DrinkSize drinks = DrinkSize.values()[drinkSize - 1];
         System.out.println("What beverage do you prefer?");
-        System.out.println("Options include: \n 1) Coke \n 2) Sprite \n 3) Ginger ale \n 4) Water");
-        int drinkName = scanner.nextInt();
+        int drinkName = Utils.getIntInput("Options include: \n 1) Coke \n 2) Sprite \n 3) Ginger ale \n 4) Water", 0, 5);
         DrinkName drinkChoice = DrinkName.values()[drinkName - 1];
-        Drink sizeAndName = new Drink(drinks, drinkChoice);
-        System.out.println(sizeAndName);
-        order.addItem(sizeAndName);
+        Drink drinkOrder = new Drink(drinks, drinkChoice);
+        System.out.println(drinkOrder.getStringDetails());
+        order.addItem(drinkOrder);
     }
 
     private void addChips(Order order) {
         System.out.println("which chips you would like to select");
-        System.out.println("\n 1) Lays \n 2) Pringles \n 3) Doritos \n 4) Cheetos");
-        Scanner scanner = new Scanner(System.in);
-        int userInput = scanner.nextInt();
-        ChipsName chipsName = ChipsName.values()[userInput -1];
+        int userInput = Utils.getIntInput("\n 1) Lays \n 2) Pringles \n 3) Doritos \n 4) Cheetos", 0, 5);
+        ChipsName chipsName = ChipsName.values()[userInput - 1];
         Chips chip = new Chips(chipsName);
         order.addItem(chip);
     }
 
-    private void checkout(Order order){
-        System.out.println("Your Order: ");
-        for (OrderInterface item : order.getItems()
-        ) {
-            System.out.println(item.getStringDetails());
-        }
-        String choice = Utils.getStringInput("Would you like to confirm order? Y/N ");
-        if(choice.equalsIgnoreCase("y")){
-            OrderFileManager ofm = new OrderFileManager(order);
-            ofm.saveToTXTFile();
+    private void checkout(Order order) {
+        if (order.getItems().isEmpty()) {
+            System.out.println("You have nothing in your cart");
+        } else {
+            System.out.println("Your Order: ");
+            for (OrderInterface item : order.getItems()
+            ) {
+                System.out.println(item.getStringDetails());
+            }
+            String choice = Utils.getStringInput("Would you like to confirm order? Y/N ");
+            if (choice.equalsIgnoreCase("y")) {
+                OrderFileManager ofm = new OrderFileManager(order);
+                ofm.saveToTXTFile();
+                order.clear();
+            } else if (choice.equalsIgnoreCase("n")) {
+                System.out.println("Order cancelled");
+                order.clear();
+            }
         }
     }
 }

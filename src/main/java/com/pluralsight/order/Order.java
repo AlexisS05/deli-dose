@@ -18,6 +18,10 @@ public class Order implements OrderInterface{
         return items;
     }
 
+    public void clear(){
+        this.items.clear();
+    }
+
     @Override
     public String getStringDetails() {
         StringBuilder receipt = new StringBuilder();

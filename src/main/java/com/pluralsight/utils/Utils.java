@@ -17,11 +17,24 @@ public class Utils {
         String input;
 
         System.out.println(prompt);
-        input = scanner.nextLine().trim();
+        input = scanner.next().trim();
 
         while (input.isEmpty()) {
             System.out.println("Invalid input. Please enter a non-empty input: ");
             input = scanner.nextLine().trim();
+        }
+
+        return input;
+    }
+
+    public static int getIntInput(String prompt, int min, int max){
+        int input;
+        System.out.println(prompt);
+        input = scanner.nextInt();
+
+        while (input <= min || input >= max){
+            System.out.println("This is an invalid choice. Try again");
+            input = scanner.nextInt();
         }
 
         return input;

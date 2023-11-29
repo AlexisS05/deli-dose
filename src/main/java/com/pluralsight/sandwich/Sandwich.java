@@ -50,6 +50,9 @@ public class Sandwich implements OrderInterface {
         return isToasted;
     }
 
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+    }
 
     @Override
     public String getStringDetails() {
@@ -57,6 +60,7 @@ public class Sandwich implements OrderInterface {
                 "SIZE: " + getSize() + "\n" +
                 "PRICE: " + getPrice() + "\n" +
                 "TOPPINGS: " + toppings + "\n" +
-                "EXTRAS: " + extras + "\n";
+                "EXTRAS: " + extras + "\n" +
+                "TOASTED: " + (isToasted ? "Yes" : "No") + "\n";
     }
 }

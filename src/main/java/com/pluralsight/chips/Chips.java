@@ -21,6 +21,6 @@ public class Chips implements OrderInterface {
     @Override
     public String getStringDetails() {
         return  "CHIPS: " + name.getName() + "\n" +
-                "CHIPS PRICE: " + getPrice();
+                "CHIPS PRICE: " + getPrice() + "\n";
     }
 }

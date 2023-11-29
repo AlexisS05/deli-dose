@@ -38,7 +38,7 @@ public class UserInterface {
         Order order = new Order();
 
         while (true) {
-            System.out.println("What would you like to order? \n 1) Add Sandwich \n 2) Add Drink \n 3) Add Chips");
+            System.out.println("What would you like to order? \n 1) Add Sandwich \n 2) Add Drink \n 3) Add Chips \n 4) Checkout");
             char option = Utils.getCharInput();
             switch (option) {
                 case '1':
@@ -52,6 +52,7 @@ public class UserInterface {
                     break;
                 case '4':
                     checkout(order);
+                    break;
                 default:
                     System.out.println("Please try again! ");
             }
@@ -144,6 +145,7 @@ public class UserInterface {
         Topping sideToppings = Topping.values()[sideOptions -1];
         Sandwich.addTopping(sideToppings);
         System.out.println(sandwich.getStringDetails());
+        order.addItem(sandwich);
     }
 
     private void addDrink(Order order) {
@@ -160,6 +162,7 @@ public class UserInterface {
         DrinkSize sizeOfDrink = DrinkSize.valueOf(size);
         Drink sizeAndName = new Drink(sizeOfDrink, nameOfDrink);
         System.out.println(sizeAndName);
+        order.addItem(sizeAndName);
     }
 
     private void addChips(Order order) {
@@ -170,6 +173,7 @@ public class UserInterface {
         System.out.println(userInput);
         ChipsName chipsName = ChipsName.valueOf(userInput);
         Chips chip = new Chips(chipsName);
+        order.addItem(chip);
     }
 
     private void checkout(Order order){

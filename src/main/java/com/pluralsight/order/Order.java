@@ -20,6 +20,10 @@ public class Order implements OrderInterface{
 
     @Override
     public String getStringDetails() {
-        return null;
+        StringBuilder receipt = new StringBuilder();
+        for(OrderInterface item : items){
+            receipt.append(item.getStringDetails()).append("\n");
+        }
+        return receipt.toString();
     }
 }

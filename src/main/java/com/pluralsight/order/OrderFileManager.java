@@ -1,5 +1,13 @@
 package com.pluralsight.order;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class OrderFileManager {
 
     private Order order;
@@ -9,5 +17,32 @@ public class OrderFileManager {
     }
 
     public void saveToTXTFile() {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        String fileName = format.format(LocalDateTime.now()) + ".txt";
+        String dirPath = "Receipts";
+        String filePath = dirPath + "/" + fileName;
+
+        // Create the directory if it doesn't exist
+        Path dirPathObj = Paths.get(dirPath);
+        boolean dirExists = Files.exists(dirPathObj);
+        if (!dirExists) {
+            try {
+                Files.createDirectories(dirPathObj);
+                System.out.println("Directory created successfully!");
+            } catch (IOException e) {
+                System.out.println("Failed to create directory!" + e.getMessage());
+            }
+        }
+
+        try {
+            String orderDetails = order.getStringDetails();
+            FileWriter writer = new FileWriter(filePath);
+            writer.write(orderDetails);
+            writer.close();
+
+            System.out.println("Saved to " + filePath);
+        } catch (IOException e) {
+            System.out.println("Error creating receipt: " + fileName);
+        }
     }
 }

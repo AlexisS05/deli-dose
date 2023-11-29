@@ -1,6 +1,8 @@
 package com.pluralsight.drink;
 
-public class Drink {
+import com.pluralsight.order.OrderInterface;
+
+public class Drink implements OrderInterface {
 
     private final DrinkSize size;
 
@@ -19,4 +21,8 @@ public class Drink {
         this.name = name;
     }
 
+    @Override
+    public String getStringDetails() {
+        return "DRINK: " + size + ", " + name.getName();
+    }
 }

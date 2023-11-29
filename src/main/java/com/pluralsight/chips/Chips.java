@@ -1,6 +1,8 @@
 package com.pluralsight.chips;
 
-public class Chips {
+import com.pluralsight.order.OrderInterface;
+
+public class Chips implements OrderInterface {
     private final ChipsName name;
 
 
@@ -10,5 +12,15 @@ public class Chips {
 
     public double getPrice() {
         return 1.50;
+    }
+
+    public ChipsName getName() {
+        return name;
+    }
+
+    @Override
+    public String getStringDetails() {
+        return  "CHIPS: " + name.getName() + "\n" +
+                "CHIPS PRICE: " + getPrice();
     }
 }

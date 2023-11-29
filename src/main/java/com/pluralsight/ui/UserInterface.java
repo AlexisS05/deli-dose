@@ -137,6 +137,11 @@ public class UserInterface {
             Topping regularToppings = Topping.values()[regularOptions - 1];
             Sandwich.addTopping(regularToppings);
         }
+        //String moreToppings = Utils.getStringInput("Would you like to add more Toppings? Y/N");
+        String toppingsTest = Utils.getIntToppings("Would you like to add more Toppings 2? Y/N");
+        System.out.println(toppingsTest);
+
+
         // Sauces
         String sauceChoice = Utils.getStringInput("Would you like to add any Sauce? Y/N");
         if (sauceChoice.equalsIgnoreCase("y")) {

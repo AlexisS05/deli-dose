@@ -17,6 +17,7 @@ import com.pluralsight.utils.Utils;
 import java.util.Scanner;
 
 public class UserInterface {
+    Sandwich sandwich = new Sandwich();
     public void homeScreen() {
         System.out.print("""                        
                                      .---.
@@ -87,35 +88,8 @@ public class UserInterface {
 
 
     private void addSandwich(Order order) {
-        BreadType bread = null;
+        BreadType bread = sandwich.getBreadChoice();
         SandwichSize size = null;
-        while (bread == null) {
-            System.out.println("""
-            >>>>>> Select your Bread Choice: <<<<<<<<<
-                            ----------
-                           | 1) WHITE |
-                           | 2) WHEAT |
-                           | 3) RYE   |
-                           | 4) WRAP  |
-                            ----------""");
-            char breadChoice = Utils.getCharInput();
-            switch (breadChoice) {
-                case '1':
-                    bread = BreadType.WHITE;
-                    break;
-                case '2':
-                    bread = BreadType.WHEAT;
-                    break;
-                case '3':
-                    bread = BreadType.RYE;
-                    break;
-                case '4':
-                    bread = BreadType.WRAP;
-                    break;
-                default:
-                    System.out.println("Please enter a valid bread choice (1, 2, 3, or 4): ");
-            }
-        }
 
         while (size == null) {
             System.out.println("""

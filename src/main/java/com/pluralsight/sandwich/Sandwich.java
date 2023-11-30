@@ -2,6 +2,7 @@ package com.pluralsight.sandwich;
 
 import com.pluralsight.order.OrderItem;
 import com.pluralsight.toppings.Topping;
+import com.pluralsight.utils.Utils;
 
 import javax.print.attribute.standard.Sides;
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class Sandwich implements OrderItem {
         toppings = new ArrayList<>();
         extras = new ArrayList<>();
         sides = new ArrayList<>();
+    }
+
+    public Sandwich() {
     }
 
     public static void addTopping(Topping topping) {
@@ -57,6 +61,11 @@ public class Sandwich implements OrderItem {
                 price += topping.getPrice12Inch();
             }
         }
+        double extraPrice = getExtraPrice();
+        return price + extraPrice;
+    }
+
+    private double getExtraPrice() {
         double extraPrice = 0;
         for(Topping extra : extras) {
             if (extras.contains(Topping.EXTRA_MEAT) || extras.contains(Topping.EXTRA_CHEESE)) {
@@ -67,18 +76,9 @@ public class Sandwich implements OrderItem {
                 } else if (size == SandwichSize.TWELVE) {
                     extraPrice += extra.getPrice12Inch();
                 }
-//                    System.out.println( + "This is extra meat");
-            } //else if (extras.contains(Topping.EXTRA_CHEESE)) {
-//                    if(size ==SandwichSize.FOUR){
-//                        price += extra.getPrice4Inch();
-//                    } else if (size == SandwichSize.EIGHT) {
-//                        price += extra.getPrice8Inch();
-//                    } else if (size == SandwichSize.TWELVE) {
-//                        price += extra.getPrice12Inch();
-//                    }
-//                }
+            }
         }
-        return price + extraPrice;
+        return extraPrice;
     }
 
     public BreadType getBreadType() {
@@ -95,6 +95,38 @@ public class Sandwich implements OrderItem {
 
     public void setToasted(boolean toasted) {
         isToasted = toasted;
+    }
+
+    public static BreadType getBreadChoice(){
+        BreadType bread = null;
+        while (bread == null) {
+            System.out.println("""
+            >>>>>> Select your Bread Choice: <<<<<<<<<
+                            ----------
+                           | 1) WHITE |
+                           | 2) WHEAT |
+                           | 3) RYE   |
+                           | 4) WRAP  |
+                            ----------""");
+            char breadChoice = Utils.getCharInput();
+            switch (breadChoice) {
+                case '1':
+                    bread = BreadType.WHITE;
+                    break;
+                case '2':
+                    bread = BreadType.WHEAT;
+                    break;
+                case '3':
+                    bread = BreadType.RYE;
+                    break;
+                case '4':
+                    bread = BreadType.WRAP;
+                    break;
+                default:
+                    System.out.println("Please enter a valid bread choice (1, 2, 3, or 4): ");
+            }
+        }
+        return bread;
     }
 
     @Override

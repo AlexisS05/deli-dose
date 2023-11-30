@@ -43,6 +43,9 @@ public class Sandwich implements OrderItem {
         return price;
     }
 
+    public static List<Topping> getToppings() {
+        return toppings;
+    }
 
     @Override
     public double getPrice(){

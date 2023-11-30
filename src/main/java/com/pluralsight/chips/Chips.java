@@ -1,8 +1,8 @@
 package com.pluralsight.chips;
 
-import com.pluralsight.order.OrderInterface;
+import com.pluralsight.order.OrderItem;
 
-public class Chips implements OrderInterface {
+public class Chips implements OrderItem {
     private final ChipsName name;
 
 
@@ -10,6 +10,7 @@ public class Chips implements OrderInterface {
         this.name = name;
     }
 
+    @Override
     public double getPrice() {
         return 1.50;
     }
@@ -20,7 +21,6 @@ public class Chips implements OrderInterface {
 
     @Override
     public String getStringDetails() {
-        return  "CHIPS: " + name.getName() + "\n" +
-                "CHIPS PRICE: " + getPrice() + "\n";
+        return  "CHIPS: " + name.getName() + " ----------------------- PRICE: " + String.format("($%.2f)", getPrice()) + "\n";
     }
 }

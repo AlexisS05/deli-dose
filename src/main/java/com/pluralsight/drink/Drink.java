@@ -1,8 +1,8 @@
 package com.pluralsight.drink;
 
-import com.pluralsight.order.OrderInterface;
+import com.pluralsight.order.OrderItem;
 
-public class Drink implements OrderInterface {
+public class Drink implements OrderItem {
 
     private final DrinkSize size;
 
@@ -15,6 +15,11 @@ public class Drink implements OrderInterface {
 
     @Override
     public String getStringDetails() {
-        return "DRINK: " + size + ", " + name.getName();
+        return "DRINK: " + size + ", " + name.getName() + " ------------------- PRICE" + String.format("($%.2f)", getPrice());
+    }
+
+    @Override
+    public double getPrice() {
+       return size.getPrice();
     }
 }

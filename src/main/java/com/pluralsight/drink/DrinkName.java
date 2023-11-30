@@ -10,10 +10,4 @@ public enum DrinkName {
     public String getName() {
         return name;
     }
-
-
-
-
-
-    // Missing one more thing
 }

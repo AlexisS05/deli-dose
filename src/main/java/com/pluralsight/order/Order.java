@@ -3,18 +3,18 @@ package com.pluralsight.order;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order implements OrderInterface{
-    private final List<OrderInterface> items;
+public class Order implements OrderItem {
+    private final List<OrderItem> items;
 
     public Order() {
         items = new ArrayList<>();
     }
 
-    public void addItem(OrderInterface item) {
+    public void addItem(OrderItem item) {
         items.add(item);
     }
 
-    public List<OrderInterface> getItems() {
+    public List<OrderItem> getItems() {
         return items;
     }
 
@@ -25,9 +25,14 @@ public class Order implements OrderInterface{
     @Override
     public String getStringDetails() {
         StringBuilder receipt = new StringBuilder();
-        for(OrderInterface item : items){
+        for(OrderItem item : items){
             receipt.append(item.getStringDetails()).append("\n");
         }
         return receipt.toString();
+    }
+
+    @Override
+    public double getPrice() {
+        return 0;
     }
 }

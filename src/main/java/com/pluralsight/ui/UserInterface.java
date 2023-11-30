@@ -7,7 +7,7 @@ import com.pluralsight.drink.DrinkName;
 import com.pluralsight.drink.DrinkSize;
 import com.pluralsight.order.Order;
 import com.pluralsight.order.OrderFileManager;
-import com.pluralsight.order.OrderInterface;
+import com.pluralsight.order.OrderItem;
 import com.pluralsight.sandwich.BreadType;
 import com.pluralsight.sandwich.Sandwich;
 import com.pluralsight.sandwich.SandwichSize;
@@ -41,7 +41,7 @@ public class UserInterface {
         Order order = new Order();
 
         while (true) {
-            System.out.println("What would you like to order? \n 1) Add Sandwich \n 2) Add Drink \n 3) Add Chips \n 4) Checkout");
+            System.out.println("What would you like to order? \n 1) Add Sandwich \n 2) Add Drink \n 3) Add Chips \n 4) Checkout \n 0) Return Home");
             char option = Utils.getCharInput();
             switch (option) {
                 case '1':
@@ -56,6 +56,8 @@ public class UserInterface {
                 case '4':
                     checkout(order);
                     break;
+                case '0':
+                    return;
                 default:
                     System.out.println("Please try again! ");
             }
@@ -115,7 +117,7 @@ public class UserInterface {
             Sandwich.addTopping(topping);
             String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
             if (extraChoice.equalsIgnoreCase("y")) {
-                Sandwich.addExtra(topping);
+                Sandwich.addExtra(Topping.EXTRA_MEAT);
             } //else{
                 //System.out.println("Invalid option");
                 //String tryAgain = Utils.getStringInput("Would you like to add extra Meat? Y/N");
@@ -135,7 +137,7 @@ public class UserInterface {
             Sandwich.addTopping(cheeseTopping);
             String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
             if (extraCheese.equalsIgnoreCase("y")) {
-                Sandwich.addExtra(cheeseTopping);
+                Sandwich.addExtra(Topping.EXTRA_CHEESE);
             }//else{
                 //System.out.println("Invalid option");
                 //String tryAgain = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
@@ -208,7 +210,7 @@ public class UserInterface {
             System.out.println("You have nothing in your cart");
         } else {
             System.out.println("Your Order: ");
-            for (OrderInterface item : order.getItems()
+            for (OrderItem item : order.getItems()
             ) {
                 System.out.println(item.getStringDetails());
             }

@@ -21,6 +21,6 @@ public class Chips implements OrderItem {
 
     @Override
     public String getStringDetails() {
-        return  "CHIPS: " + name.getName() + " ----------------------- PRICE: " + String.format("($%.2f)", getPrice()) + "\n";
+        return  "CHIPS: " + name.getName() + " --------------------------------------------- PRICE: " + String.format("($%.2f)", getPrice()) + "\n";
     }
 }

@@ -42,8 +42,6 @@ public class Sandwich implements OrderItem {
     @Override
     public double getPrice(){
         price = size.getPrice();
-        System.out.println(size);
-        System.out.println(price + "This is initial price loop");
         for (Topping topping: toppings
         ) {
             if(size == SandwichSize.FOUR){
@@ -96,16 +94,29 @@ public class Sandwich implements OrderItem {
 
     @Override
     public String getStringDetails() {
-        return  String.format("%58s\n", "Deli Dose Sandwiches") +
-                String.format("%65s\n" , "85 Broad Street, New York, NY 10004") +
-                "-----------------------------------------------------------------------------------------------\n"+
-                String.format("%50s\n", "RECEIPT") +
-                "SANDWICH: " +
-                "BREAD: " + getBreadType() + "\n" +
-                "SIZE: " + getSize() + "\n" +
-                "TOPPINGS: " + toppings + "\n" +
-                "EXTRAS: " + extras + "\n" +
-                "TOASTED: " + (isToasted ? "Yes" : "No") + "\n"+
-                "TOTAL: ------------------------------------------------------------------------- PRICE: " + String.format("($%.2f)", getPrice()) + "\n";
+        StringBuilder receipt = new StringBuilder();
+
+        receipt.append("---------------------------------------------------------------------------------\n");
+
+        receipt.append(String.format("%50s\n", "Deli Dose Sandwiches"));
+        receipt.append(String.format("%60s\n", "85 Broad Street, New York, NY 10004"));
+
+        receipt.append("---------------------------------------------------------------------------------\n");
+
+        receipt.append(String.format("%42s\n", "RECEIPT:"));
+
+        receipt.append(String.format("%-22s %s\n", "SANDWICH:", "BREAD: " + getBreadType()));
+        receipt.append(String.format("%-22s %s\n", "", "SIZE: " + getSize()));
+        receipt.append(String.format("%-22s %s\n", "", "TOPPINGS: " + toppings));
+        receipt.append(String.format("%-22s %s\n", "", "EXTRAS: " + extras));
+        receipt.append(String.format("%-22s %s\n", "", "TOASTED: " + (isToasted ? "Yes" : "No")));
+
+        receipt.append(String.format("%s PRICE: ($%.2f)\n", "TOTAL: -----------------------------------------------------", getPrice()));
+
+        receipt.append("---------------------------------------------------------------------------------\n");
+
+        return receipt.toString();
     }
-}
+
+    }
+

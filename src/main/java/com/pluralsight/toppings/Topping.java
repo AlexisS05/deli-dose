@@ -39,7 +39,13 @@ public enum Topping {
     KETCHUP(ToppingType.SAUCE, 0.00),
     RANCH(ToppingType.SAUCE, 0.00),
     THOUSAND_ISLANDS(ToppingType.SAUCE, 0.00),
-    VINAIGRETTE(ToppingType.SAUCE, 0.00);
+    VINAIGRETTE(ToppingType.SAUCE, 0.00),
+
+    // Sides
+    AU_JUS(ToppingType.SIDES, 0.00),
+    MASHED_POTATOES(ToppingType.SIDES, 0.00),
+    MAC_AND_CHEESE(ToppingType.SIDES, 0.00),
+    GARLIC_BREAD(ToppingType.SIDES, 0.00);
 
     private final ToppingType category;
     private final double price4Inch;

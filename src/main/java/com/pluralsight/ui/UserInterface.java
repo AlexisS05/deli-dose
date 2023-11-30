@@ -117,17 +117,14 @@ public class UserInterface {
                         "\n 3) salami \n 4) roast beef \n 5) chicken \n 6) bacon", 0, 7);
                 Topping topping = Topping.values()[meatOption - 1];
                 Sandwich.addTopping(topping);
-                while (continueChoosing) {
-                    String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
-                    if (extraChoice.equalsIgnoreCase("y")) {
-                        Sandwich.addExtra(Topping.EXTRA_MEAT);
-                    }else{
-                        continueChoosing = false;
-                    }
-                }
             } else {
                 continueChoosing = false;
             }
+        }
+        // Extra Meat
+        String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
+        if (extraChoice.equalsIgnoreCase("y")) {
+            Sandwich.addExtra(Topping.EXTRA_MEAT);
         }
         // Cheese
         while (continueChoosing) {
@@ -136,15 +133,14 @@ public class UserInterface {
                 int cheeseOption = Utils.getIntInput("Here are our cheese options: \n 7) American \n 8) Provolone \n 9) Cheddar \n 10) Swiss", 6, 11);
                 Topping cheeseTopping = Topping.values()[cheeseOption - 1];
                 Sandwich.addTopping(cheeseTopping);
-                String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
-                if (extraCheese.equalsIgnoreCase("y")) {
-                    Sandwich.addExtra(Topping.EXTRA_CHEESE);
-                }else {
-                    continueChoosing = false;
-                }
             }else {
                 continueChoosing = false;
             }
+        }
+        // Extra Cheese
+        String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
+        if (extraCheese.equalsIgnoreCase("y")) {
+            Sandwich.addExtra(Topping.EXTRA_CHEESE);
         }
         // Topping
         String toppingChoice = Utils.getStringInput("Would you like to add Toppings? Y/N");
@@ -215,6 +211,7 @@ public class UserInterface {
             ) {
                 System.out.println(item.getStringDetails());
             }
+            System.out.printf("This is the total price: $%.2f" + order.getPrice());
             String choice = Utils.getStringInput("Would you like to confirm order? Y/N ");
             if (choice.equalsIgnoreCase("y")) {
                 OrderFileManager ofm = new OrderFileManager(order);

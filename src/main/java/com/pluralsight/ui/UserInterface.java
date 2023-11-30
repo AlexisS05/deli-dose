@@ -109,46 +109,43 @@ public class UserInterface {
         }
         Sandwich sandwich = new Sandwich(bread, size);
         // Meat
-        String meatChoice = Utils.getStringInput("Would you like to add Meat? Y/N");
-        if (meatChoice.equalsIgnoreCase("y")) {
-            int meatOption = Utils.getIntInput("Here are our meat toppings: \n 1) Steak \n 2) ham " +
-                    "\n 3) salami \n 4) roast beef \n 5) chicken \n 6) bacon", 0, 7);
-            Topping topping = Topping.values()[meatOption - 1];
-            Sandwich.addTopping(topping);
-            String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
-            if (extraChoice.equalsIgnoreCase("y")) {
-                Sandwich.addExtra(Topping.EXTRA_MEAT);
-            } //else{
-                //System.out.println("Invalid option");
-                //String tryAgain = Utils.getStringInput("Would you like to add extra Meat? Y/N");
-                //System.out.println(tryAgain);
-                //Sandwich.addExtra(topping);
-            //}
-        }//else{
-            //System.out.println("Invalid option");
-            //String tryAgain = Utils.getStringInput("Would you like to add Meat? Y/N");
-            //System.out.println(tryAgain);
-        //}
+        boolean continueChoosing = true;
+        while (continueChoosing) {
+            String meatChoice = Utils.getStringInput("Would you like to add Meat? Y/N");
+            if (meatChoice.equalsIgnoreCase("y")) {
+                int meatOption = Utils.getIntInput("Here are our meat toppings: \n 1) Steak \n 2) ham " +
+                        "\n 3) salami \n 4) roast beef \n 5) chicken \n 6) bacon", 0, 7);
+                Topping topping = Topping.values()[meatOption - 1];
+                Sandwich.addTopping(topping);
+                while (continueChoosing) {
+                    String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
+                    if (extraChoice.equalsIgnoreCase("y")) {
+                        Sandwich.addExtra(Topping.EXTRA_MEAT);
+                    }else{
+                        continueChoosing = false;
+                    }
+                }
+            } else {
+                continueChoosing = false;
+            }
+        }
         // Cheese
-        String cheeseChoice = Utils.getStringInput("Would you like to add Cheese? Y/N");
-        if (cheeseChoice.equalsIgnoreCase("y")) {
-            int cheeseOption = Utils.getIntInput("Here are our cheese options: \n 7) American \n 8) Provolone \n 9) Cheddar \n 10) Swiss", 6, 11);
-            Topping cheeseTopping = Topping.values()[cheeseOption - 1];
-            Sandwich.addTopping(cheeseTopping);
-            String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
-            if (extraCheese.equalsIgnoreCase("y")) {
-                Sandwich.addExtra(Topping.EXTRA_CHEESE);
-            }//else{
-                //System.out.println("Invalid option");
-                //String tryAgain = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
-                //System.out.println(tryAgain);
-                //Sandwich.addExtra(cheeseTopping);
-            //}
-        }//else{
-            //System.out.println("Invalid option");
-            //String tryAgain = Utils.getStringInput("Would you like to add Cheese? Y/N");
-            //System.out.println(tryAgain);
-        //}
+        while (continueChoosing) {
+            String cheeseChoice = Utils.getStringInput("Would you like to add Cheese? Y/N");
+            if (cheeseChoice.equalsIgnoreCase("y")) {
+                int cheeseOption = Utils.getIntInput("Here are our cheese options: \n 7) American \n 8) Provolone \n 9) Cheddar \n 10) Swiss", 6, 11);
+                Topping cheeseTopping = Topping.values()[cheeseOption - 1];
+                Sandwich.addTopping(cheeseTopping);
+                String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
+                if (extraCheese.equalsIgnoreCase("y")) {
+                    Sandwich.addExtra(Topping.EXTRA_CHEESE);
+                }else {
+                    continueChoosing = false;
+                }
+            }else {
+                continueChoosing = false;
+            }
+        }
         // Topping
         String toppingChoice = Utils.getStringInput("Would you like to add Toppings? Y/N");
         if (toppingChoice.equalsIgnoreCase("y")) {
@@ -157,13 +154,12 @@ public class UserInterface {
             Topping regularToppings = Topping.values()[regularOptions - 1];
             Sandwich.addTopping(regularToppings);
         }
-        //String moreToppings = Utils.getStringInput("Would you like to add more Toppings? Y/N");
         String toppingsTest = Utils.getIntToppings("Would you like to add more Toppings ? Y/N");
         System.out.println(toppingsTest);
 
 
         // Sauces
-        boolean continueChoosing = true;
+
         while (continueChoosing) {
             String sauceChoice = Utils.getStringInput("Would you like to add any Sauce? Y/N");
             if (sauceChoice.equalsIgnoreCase("y")) {

@@ -15,7 +15,7 @@ public class Drink implements OrderItem {
 
     @Override
     public String getStringDetails() {
-        return "DRINK: " + size + ", " + name.getName() + " ------------------- PRICE" + String.format("($%.2f)", getPrice());
+        return "DRINK: " + size + ", " + name.getName() + " ----------------------------------------- PRICE" + String.format("($%.2f)", getPrice());
     }
 
     @Override

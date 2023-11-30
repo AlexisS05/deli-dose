@@ -143,6 +143,7 @@ public class UserInterface {
         Sandwich sandwich = new Sandwich(bread, size);
         // Meat
         boolean continueChoosing = true;
+
         while (continueChoosing) {
             String meatChoice = Utils.getStringInput("""
                     >>>>>>> Would you like to add Meat? <<<<<<<
@@ -264,21 +265,22 @@ public class UserInterface {
             }
         }
 
+        //Sides
+        int sideOptions = Utils.getIntInput("I'm pretty sure you need some sides with that, how about these: \n 28) au jus \n 29) Mashed potatoes" +
+                "\n 30) Mac & Cheese \n 31) Garlic Bread " +
+                "", 27, 32);
+        Topping sideToppings = Topping.values()[sideOptions -1];
+        Sandwich.addSides(sideToppings);
+        System.out.println(sandwich.getStringDetails());
+
+
         // Toasted
         String toastChoice = Utils.getStringInput("""
                 >>>>>>> Would you like it Toasted? <<<<<<<<<<
                                   |Y/N|""");
         sandwich.setToasted(toastChoice.equalsIgnoreCase("y"));
-
-
-        //Sides not completed yet
-        //System.out.println("I'm pretty sure you need some sides with that, how about these: \n 28) au jus \n 29) sauce");
-        //int sideOptions = scanner.nextInt();
-        //Topping sideToppings = Topping.values()[sideOptions -1];
-        //Sandwich.addTopping(sideToppings);
-        System.out.println(sandwich.getStringDetails());
-        order.addItem(sandwich);
     }
+
 
     private void addDrink(Order order) {
         System.out.print("""

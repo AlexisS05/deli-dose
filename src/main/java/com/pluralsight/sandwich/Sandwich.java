@@ -3,6 +3,7 @@ package com.pluralsight.sandwich;
 import com.pluralsight.order.OrderItem;
 import com.pluralsight.toppings.Topping;
 
+import javax.print.attribute.standard.Sides;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +14,14 @@ public class Sandwich implements OrderItem {
     private boolean isToasted;
     private static List<Topping> toppings;
     private static List<Topping> extras;
+    private static List<Topping> sides;
 
     public Sandwich(BreadType breadType, SandwichSize size) {
         this.breadType = breadType;
         this.size = size;
         toppings = new ArrayList<>();
         extras = new ArrayList<>();
+        sides = new ArrayList<>();
     }
 
     public static void addTopping(Topping topping) {
@@ -28,6 +31,8 @@ public class Sandwich implements OrderItem {
     public static void addExtra(Topping topping) {
         extras.add(topping);
     }
+
+    public static void addSides(Topping topping){sides.add(topping);}
 
     public double getPrice(int a) {
         switch (size){
@@ -109,6 +114,7 @@ public class Sandwich implements OrderItem {
         receipt.append(String.format("%-22s %s\n", "", "SIZE: " + getSize()));
         receipt.append(String.format("%-22s %s\n", "", "TOPPINGS: " + toppings));
         receipt.append(String.format("%-22s %s\n", "", "EXTRAS: " + extras));
+        receipt.append(String.format("%-22s %s\n", "", "SIDES: " + sides));
         receipt.append(String.format("%-22s %s\n", "", "TOASTED: " + (isToasted ? "Yes" : "No")));
 
         receipt.append(String.format("%s PRICE: ($%.2f)\n", "TOTAL: -----------------------------------------------------", getPrice()));

@@ -163,12 +163,17 @@ public class UserInterface {
 
 
         // Sauces
-        String sauceChoice = Utils.getStringInput("Would you like to add any Sauce? Y/N");
-        if (sauceChoice.equalsIgnoreCase("y")) {
-            int sauceOptions = Utils.getIntInput("I know you don't want no dry sandwich, Here are some options: \n 22) Mayo \n 23) Mustard " +
-                    "\n 24) Ketchup \n 25) Ranch \n 26) Thousand Islands \n 27) Vinaigrette", 21, 28);
-            Topping sauceToppings = Topping.values()[sauceOptions - 1];
-            Sandwich.addTopping(sauceToppings);
+        boolean continueChoosing = true;
+        while (continueChoosing) {
+            String sauceChoice = Utils.getStringInput("Would you like to add any Sauce? Y/N");
+            if (sauceChoice.equalsIgnoreCase("y")) {
+                int sauceOptions = Utils.getIntInput("I know you don't want no dry sandwich, Here are some options: \n 22) Mayo \n 23) Mustard " +
+                        "\n 24) Ketchup \n 25) Ranch \n 26) Thousand Islands \n 27) Vinaigrette", 21, 28);
+                Topping sauceToppings = Topping.values()[sauceOptions - 1];
+                Sandwich.addTopping(sauceToppings);
+            } else {
+                continueChoosing = false;
+            }
         }
 
         // Toasted

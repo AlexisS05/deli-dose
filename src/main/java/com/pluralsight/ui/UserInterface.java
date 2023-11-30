@@ -116,8 +116,17 @@ public class UserInterface {
             String extraChoice = Utils.getStringInput("Would you like to add extra Meat? Y/N");
             if (extraChoice.equalsIgnoreCase("y")) {
                 Sandwich.addExtra(topping);
-            }
-        }
+            } //else{
+                //System.out.println("Invalid option");
+                //String tryAgain = Utils.getStringInput("Would you like to add extra Meat? Y/N");
+                //System.out.println(tryAgain);
+                //Sandwich.addExtra(topping);
+            //}
+        }//else{
+            //System.out.println("Invalid option");
+            //String tryAgain = Utils.getStringInput("Would you like to add Meat? Y/N");
+            //System.out.println(tryAgain);
+        //}
         // Cheese
         String cheeseChoice = Utils.getStringInput("Would you like to add Cheese? Y/N");
         if (cheeseChoice.equalsIgnoreCase("y")) {
@@ -127,8 +136,17 @@ public class UserInterface {
             String extraCheese = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
             if (extraCheese.equalsIgnoreCase("y")) {
                 Sandwich.addExtra(cheeseTopping);
-            }
-        }
+            }//else{
+                //System.out.println("Invalid option");
+                //String tryAgain = Utils.getStringInput("Would you like to add extra Cheese? Y/N");
+                //System.out.println(tryAgain);
+                //Sandwich.addExtra(cheeseTopping);
+            //}
+        }//else{
+            //System.out.println("Invalid option");
+            //String tryAgain = Utils.getStringInput("Would you like to add Cheese? Y/N");
+            //System.out.println(tryAgain);
+        //}
         // Topping
         String toppingChoice = Utils.getStringInput("Would you like to add Toppings? Y/N");
         if (toppingChoice.equalsIgnoreCase("y")) {
@@ -138,7 +156,7 @@ public class UserInterface {
             Sandwich.addTopping(regularToppings);
         }
         //String moreToppings = Utils.getStringInput("Would you like to add more Toppings? Y/N");
-        String toppingsTest = Utils.getIntToppings("Would you like to add more Toppings 2? Y/N");
+        String toppingsTest = Utils.getIntToppings("Would you like to add more Toppings ? Y/N");
         System.out.println(toppingsTest);
 
 

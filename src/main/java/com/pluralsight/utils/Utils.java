@@ -6,6 +6,15 @@ import com.pluralsight.toppings.Topping;
 import java.util.Scanner;
 
 public class Utils {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_PINK = "\u001B[38;5;206m";
+    public static final String ANSI_PURPLE = "\u001B[38;5;165m";
+    public static final String ANSI_ORANGE = "\u001B[38;5;208m";
     static Scanner scanner = new Scanner(System.in);
     public static char getCharInput() {
         String userInput = scanner.nextLine().toUpperCase().trim();

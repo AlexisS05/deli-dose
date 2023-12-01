@@ -33,6 +33,10 @@ public class Order implements OrderItem {
 
     @Override
     public double getPrice() {
-        return 0;
+        double totalPrice = 0.0;
+        for(OrderItem item : items){
+            totalPrice += item.getPrice();
+        }
+        return totalPrice;
     }
 }

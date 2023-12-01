@@ -4,7 +4,8 @@ import com.pluralsight.order.OrderItem;
 import com.pluralsight.toppings.Topping;
 import com.pluralsight.utils.Utils;
 
-import javax.print.attribute.standard.Sides;
+import static com.pluralsight.utils.Utils.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,18 +133,37 @@ public class Sandwich implements OrderItem {
         return bread;
     }
 
+    public static SandwichSize getSandwichSize(){
+        SandwichSize size = null;
+        while (size == null) {
+            System.out.println(ANSI_PINK + """
+                    >>>>>>>> Select size of Sandwich: <<<<<<<<<<
+                                  ------------------
+                                 | 1) Four Inches   |
+                                 | 2) Eight Inches  |
+                                 | 3) Twelve Inches |
+                                  ------------------""" + ANSI_RESET);
+            char sizeChoice = Utils.getCharInput();
+            switch (sizeChoice) {
+                case '1':
+                    size = SandwichSize.FOUR;
+                    break;
+                case '2':
+                    size = SandwichSize.EIGHT;
+                    break;
+                case '3':
+                    size = SandwichSize.TWELVE;
+                    break;
+                default:
+                    System.out.println("Choose an appropriate sandwich size.");
+            }
+        }
+        return size;
+    }
+
     @Override
     public String getStringDetails() {
         StringBuilder receipt = new StringBuilder();
-
-        receipt.append("---------------------------------------------------------------------------------\n");
-
-        receipt.append(String.format("%50s\n", "Deli Dose Sandwiches"));
-        receipt.append(String.format("%60s\n", "85 Broad Street, New York, NY 10004"));
-
-        receipt.append("---------------------------------------------------------------------------------\n");
-
-        receipt.append(String.format("%42s\n", "RECEIPT:"));
 
         receipt.append(String.format("%-22s %s\n", "SANDWICH:", "BREAD: " + getBreadType()));
         receipt.append(String.format("%-22s %s\n", "", "SIZE: " + getSize()));
@@ -152,9 +172,7 @@ public class Sandwich implements OrderItem {
         receipt.append(String.format("%-22s %s\n", "", "SIDES: " + sides));
         receipt.append(String.format("%-22s %s\n", "", "TOASTED: " + (isToasted ? "Yes" : "No")));
 
-        receipt.append(String.format("%s PRICE: ($%.2f)\n", "TOTAL: -----------------------------------------------------", getPrice()));
-
-        receipt.append("---------------------------------------------------------------------------------\n");
+        receipt.append(String.format("%s PRICE:($%.2f)\n", "TOTAL: -----------------------------------------------------",getPrice()));
 
         return receipt.toString();
     }

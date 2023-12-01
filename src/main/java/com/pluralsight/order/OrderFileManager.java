@@ -35,14 +35,26 @@ public class OrderFileManager {
         }
 
         try {
-            String orderDetails = order.getStringDetails();
-            FileWriter writer = new FileWriter(filePath);
-            writer.write(orderDetails);
+            FileWriter writer = getFileWriter(filePath);
             writer.close();
-
             System.out.println("Saved to " + filePath);
         } catch (IOException e) {
             System.out.println("Error creating receipt: " + fileName);
         }
+    }
+
+    private FileWriter getFileWriter(String filePath) throws IOException {
+        String orderDetails = order.getStringDetails();
+        double priceDetails = order.getPrice();
+        FileWriter writer = new FileWriter(filePath);
+        writer.write("---------------------------------------------------------------------------------\n");
+        writer.write(String.format("%50s\n", "Deli Dose Sandwiches"));
+        writer.write(String.format("%60s\n", "85 Broad Street, New York, NY 10004"));
+        writer.write("---------------------------------------------------------------------------------\n");
+        writer.write(String.format("%42s\n", "RECEIPT:"));
+        writer.write(orderDetails);
+        writer.write(String.format("This is the total price: $%.2f\n", priceDetails));
+        writer.write("---------------------------------------------------------------------------------\n");
+        return writer;
     }
 }

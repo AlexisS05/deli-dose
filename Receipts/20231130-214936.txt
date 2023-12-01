@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------------
+                              Deli Dose Sandwiches
+                         85 Broad Street, New York, NY 10004
+---------------------------------------------------------------------------------
+                                  RECEIPT:
+SANDWICH:              BREAD: WHITE
+                       SIZE: FOUR
+                       TOPPINGS: [STEAK, HAM, SWISS, LETTUCE, ONIONS, MAYO, KETCHUP]
+                       EXTRAS: []
+                       SIDES: [MAC_AND_CHEESE]
+                       TOASTED: Yes
+TOTAL: ----------------------------------------------------- PRICE:($8.25)
+
+DRINK: SMALL, Coke ----------------------------------------- PRICE:($2.00)
+CHIPS: Cheetos --------------------------------------------- PRICE:($1.50)
+
+This is the total price: $11.75
+---------------------------------------------------------------------------------

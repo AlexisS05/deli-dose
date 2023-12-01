@@ -41,7 +41,7 @@ public class Utils {
     }
 
     public static int getIntInput(String prompt, int min, int max){
-        int input = 0; // Initialize input variable outside the loop
+        int input = 0;
         boolean validInput = false;
 
         while (!validInput) {
@@ -61,19 +61,6 @@ public class Utils {
         }
         return input;
     }
-
-//    public static int getIntInput(String prompt, int min, int max){
-//        int input;
-//        System.out.println(prompt);
-//        input = scanner.nextInt();
-//
-//        while (input <= min || input >= max){
-//            System.out.println("This is an invalid choice. Try again");
-//            input = scanner.nextInt();
-//        }
-//
-//        return input;
-//    }
 
     public static String getIntToppings(String prompt){
         String input;

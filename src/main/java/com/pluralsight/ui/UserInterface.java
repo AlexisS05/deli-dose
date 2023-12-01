@@ -54,7 +54,7 @@ public class UserInterface {
 
         while (true) {
             System.out.print(ANSI_RED + """
-                    >>>>>> What would you like to order? <<<<<<<<
+                    >>>>>> What would you like to Order? <<<<<<<<
                                     -----------------
                                    | 1) Add Sandwich |
                                    | 2) Add Drink    |
@@ -141,7 +141,7 @@ public class UserInterface {
             Topping cheeseTopping = Topping.values()[cheeseOption - 1];
             Sandwich.addTopping(cheeseTopping);
             String extraCheese = Utils.getStringInput(ANSI_RED + """
-                    >>>>>>> Would you like to add extra Cheese? <<<<<<<<<
+                    >>>>>>> Would you like to Add Extra Cheese? <<<<<<<<<
                                          |Y/N|""" + ANSI_RESET);
             if (extraCheese.equalsIgnoreCase("y")) {
                 Sandwich.addExtra(Topping.EXTRA_CHEESE);
@@ -152,7 +152,7 @@ public class UserInterface {
         boolean toppingChoose = true;
         while (toppingChoose) {
             String toppingsTest = Utils.getIntToppings(ANSI_CYAN + """
-                    >>>>>>>> Would you like to add Toppings? <<<<<<<<<<
+                    >>>>>>>> Would you like to Add Toppings? <<<<<<<<<<
                                             |Y/N|""" + ANSI_RESET);
             if (!toppingsTest.equalsIgnoreCase("y")) {
                 toppingChoose = false;
@@ -223,7 +223,7 @@ public class UserInterface {
             }
             System.out.printf("This is the total price: $%.2f%n", order.getPrice());
             String choice = Utils.getStringInput(ANSI_GREEN + """
-                    >>>>>>> Would you like to confirm order? <<<<<<<<<
+                    >>>>>>> Would you like to Confirm Order? <<<<<<<<<
                                         |Y/N|""" + ANSI_RESET);
             if (choice.equalsIgnoreCase("y")) {
                 OrderFileManager ofm = new OrderFileManager(order);
@@ -244,11 +244,11 @@ public class UserInterface {
             int meatOption = Utils.getIntInput(ANSI_PURPLE + """ 
                     >>>>>>> Meat Toppings: <<<<<<<<
                             ---------------
-                           | 1) Steak      |   
+                           | 1) Steak      |
                            | 2) Ham        |
-                           | 3) Salami     |  
-                           | 4) Roast beef |   
-                           | 5) Chicken    |  
+                           | 3) Salami     |
+                           | 4) Roast beef |
+                           | 5) Chicken    |
                            | 6) Bacon      |
                             ---------------""" + ANSI_RESET, 0, 7);
             Topping topping = Topping.values()[meatOption - 1];

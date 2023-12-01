@@ -129,6 +129,13 @@ It has all the toppings, such as various meats and includes our sides. However, 
 
 <img src = "https://github.com/AlexisS05/deli-dose/blob/main/ScreenShots/UMLDiagram.jpg" >
 
+## Interesting Piece of code
+This code below here is a helper function that helped validate the correct numbers for each item
+in the menu and validate if a user enters a string which would be incorrect using the InputMismatchException. This method has been a help.
+
+<img src ="https://github.com/AlexisS05/deli-dose/blob/main/ScreenShots/InterestingPieceOfCode.JPG" >
+
+
 ## Credits
  - Alex (Leading the group)
  - Google 

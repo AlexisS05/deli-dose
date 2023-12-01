@@ -1,10 +1,7 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.chips.Chips;
-import com.pluralsight.chips.ChipsName;
 import com.pluralsight.drink.Drink;
-import com.pluralsight.drink.DrinkName;
-import com.pluralsight.drink.DrinkSize;
 import com.pluralsight.order.Order;
 import com.pluralsight.order.OrderFileManager;
 import com.pluralsight.order.OrderItem;
@@ -12,7 +9,6 @@ import com.pluralsight.sandwich.BreadType;
 import com.pluralsight.sandwich.Sandwich;
 import com.pluralsight.sandwich.SandwichSize;
 import com.pluralsight.toppings.Topping;
-import com.pluralsight.toppings.ToppingType;
 import com.pluralsight.utils.Utils;
 
 
@@ -158,7 +154,6 @@ public class UserInterface {
             String toppingsTest = Utils.getIntToppings(ANSI_CYAN + """
                     >>>>>>>> Would you like to add Toppings? <<<<<<<<<<
                                             |Y/N|""" + ANSI_RESET);
-            System.out.println(toppingsTest);
             if (!toppingsTest.equalsIgnoreCase("y")) {
                 toppingChoose = false;
             }
@@ -190,7 +185,7 @@ public class UserInterface {
         }
         //Sides
         int sideOptions = Utils.getIntInput(ANSI_GREEN + """
-                >>>>>>>> I'm pretty sure you need some Sides with that, How about these: <<<<<<<<
+                >>>>>>>> I'm pretty sure you need some Sides with that, How about these, These are free: <<<<<<<<
                                                   ---------------------
                                                  | 28) au jus          |
                                                  | 29) Mashed potatoes |

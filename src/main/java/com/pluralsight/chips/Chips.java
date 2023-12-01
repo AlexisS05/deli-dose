@@ -35,10 +35,10 @@ public class Chips implements OrderItem {
         int userInput = Utils.getIntInput(ANSI_ORANGE + """ 
                                           
                                 ------------
-                                | 1) Lays     |
-                                | 2) Pringles |
-                                | 3) Doritos  |
-                                | 4) Cheetos  |
+                                | 1) Cheetos  |
+                                | 2) Doritos  |
+                                | 3) Lays     |
+                                | 4) Pringles |
                                 -------------
                  """ + ANSI_RESET, 0, 5);
         ChipsName chipsName = ChipsName.values()[userInput - 1];

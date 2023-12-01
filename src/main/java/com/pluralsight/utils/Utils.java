@@ -59,8 +59,19 @@ public class Utils {
 
 
         if(input.equalsIgnoreCase("y")){
-                int regularOptions = Utils.getIntInput("Here are some regular toppings: \n 13) Lettuce \n 14) Peppers \n 15) Onions " +
-                        "\n 16) Tomatoes \n 17) Jalapenos \n 18) Cucumbers \n 19) Pickles \n 20) Guacamole \n 21) Mushrooms", 12, 22);
+                int regularOptions = Utils.getIntInput(ANSI_GREEN + """
+                        >>>>>>> Here are some regular toppings: <<<<<<<
+                                        _______________
+                                       | 13) Lettuce   |
+                                       | 14) Peppers   |
+                                       | 15) Onions    |
+                                       | 16) Tomatoes  |
+                                       | 17) Jalapenos |
+                                       | 18) Cucumbers |
+                                       | 19) Pickles   |
+                                       | 20) Guacamole |
+                                       | 21) Mushrooms |
+                                        ---------------""" + ANSI_RESET, 12, 22);
                 Topping regularToppings = Topping.values()[regularOptions - 1];
                 Sandwich.addTopping(regularToppings);
         }

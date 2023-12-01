@@ -34,12 +34,12 @@ public class Chips implements OrderItem {
                 >>>>>>>> Select One Chips: <<<<<<<< \n""" + ANSI_RESET);
         int userInput = Utils.getIntInput(ANSI_ORANGE + """ 
                                           
-                                ------------
+                                 -------------
                                 | 1) Cheetos  |
                                 | 2) Doritos  |
                                 | 3) Lays     |
                                 | 4) Pringles |
-                                -------------
+                                 -------------
                  """ + ANSI_RESET, 0, 5);
         ChipsName chipsName = ChipsName.values()[userInput - 1];
         Chips chip = new Chips(chipsName);

@@ -28,7 +28,7 @@ started Coding & Run Application
 Welcome to the DELI-DOSE Sales Application!
 This project seeks to simplify and enhance the ordering process for our unique sandwich shop, DELI-Dose.
 This app is built to manage sandwich orders, giving customers the freedom to customize their sandwiches with various sizes, 
-select their favorite bread, add regular and premium toppings, choose to toast their sandwich, and include drinks and chips in their order.
+select their favorite bread, add regular toppings, choose to toast their sandwich, and include drinks and chips in their order.
 
 ## Getting Started
 
@@ -127,7 +127,7 @@ It has all the toppings, such as various meats and includes our sides. However, 
 
 ## UML Diagram 
 
-![UML Diagram](https://github.com/SleamanAbdelhadi/deli-dose/assets/147070134/b904a3e0-99ab-4560-aa74-d2e7b2eafba5)
+<img src = "https://github.com/AlexisS05/deli-dose/blob/main/ScreenShots/UMLDiagram.jpg" >
 
 ## Credits
  - Alex (Leading the group)

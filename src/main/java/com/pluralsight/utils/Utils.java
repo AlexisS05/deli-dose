@@ -3,6 +3,7 @@ package com.pluralsight.utils;
 import com.pluralsight.sandwich.Sandwich;
 import com.pluralsight.toppings.Topping;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utils {
@@ -40,17 +41,39 @@ public class Utils {
     }
 
     public static int getIntInput(String prompt, int min, int max){
-        int input;
-        System.out.println(prompt);
-        input = scanner.nextInt();
+        int input = 0; // Initialize input variable outside the loop
+        boolean validInput = false;
 
-        while (input <= min || input >= max){
-            System.out.println("This is an invalid choice. Try again");
-            input = scanner.nextInt();
+        while (!validInput) {
+            try {
+                System.out.println(prompt);
+                input = scanner.nextInt();
+
+                if (input <= min || input >= max) {
+                    System.out.println("This is an invalid choice. Try again");
+                } else {
+                    validInput = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please try again.");
+                scanner.next();
+            }
         }
-
         return input;
     }
+
+//    public static int getIntInput(String prompt, int min, int max){
+//        int input;
+//        System.out.println(prompt);
+//        input = scanner.nextInt();
+//
+//        while (input <= min || input >= max){
+//            System.out.println("This is an invalid choice. Try again");
+//            input = scanner.nextInt();
+//        }
+//
+//        return input;
+//    }
 
     public static String getIntToppings(String prompt){
         String input;

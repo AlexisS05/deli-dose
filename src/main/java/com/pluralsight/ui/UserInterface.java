@@ -150,12 +150,17 @@ public class UserInterface {
 
         // Topping
         boolean toppingChoose = true;
-        while (toppingChoose) {
-            String toppingsTest = Utils.getIntToppings(ANSI_CYAN + """
+        String toppingChooseOnce = Utils.getIntToppings(ANSI_CYAN + """
                     >>>>>>>> Would you like to Add Toppings? <<<<<<<<<<
                                             |Y/N|""" + ANSI_RESET);
-            if (!toppingsTest.equalsIgnoreCase("y")) {
-                toppingChoose = false;
+        if(toppingChooseOnce.equalsIgnoreCase("y")) {
+            while (toppingChoose) {
+                String toppingsTest = Utils.getIntToppings(ANSI_CYAN + """
+                        >>>>>>>> Would you like to Add more Toppings? <<<<<<<<<<
+                                                |Y/N|""" + ANSI_RESET);
+                if (!toppingsTest.equalsIgnoreCase("y")) {
+                    toppingChoose = false;
+                }
             }
         }
 
@@ -200,7 +205,6 @@ public class UserInterface {
                 >>>>>>> Would you like it Toasted? <<<<<<<<<<
                                   |Y/N|""" + ANSI_RESET);
         sandwich.setToasted(toastChoice.equalsIgnoreCase("y"));
-        System.out.println(sandwich.getStringDetails());
         order.addItem(sandwich);
     }
 

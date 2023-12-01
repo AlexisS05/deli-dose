@@ -47,14 +47,14 @@ public class OrderFileManager {
         String orderDetails = order.getStringDetails();
         double priceDetails = order.getPrice();
         FileWriter writer = new FileWriter(filePath);
-        writer.write("---------------------------------------------------------------------------------\n");
+        writer.write("-------------------------------------------------------------------------------------------\n");
         writer.write(String.format("%50s\n", "Deli Dose Sandwiches"));
         writer.write(String.format("%60s\n", "85 Broad Street, New York, NY 10004"));
-        writer.write("---------------------------------------------------------------------------------\n");
+        writer.write("-------------------------------------------------------------------------------------------\n");
         writer.write(String.format("%42s\n", "RECEIPT:"));
         writer.write(orderDetails);
         writer.write(String.format("This is the total price: $%.2f\n", priceDetails));
-        writer.write("---------------------------------------------------------------------------------\n");
+        writer.write("-------------------------------------------------------------------------------------------\n");
         return writer;
     }
 }

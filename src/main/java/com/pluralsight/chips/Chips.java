@@ -35,6 +35,7 @@ public class Chips implements OrderItem {
         int userInput = Utils.getIntInput(ANSI_ORANGE + """ 
                                           
                                  -------------
+                                 Each ($1.50)
                                 | 1) Cheetos  |
                                 | 2) Doritos  |
                                 | 3) Lays     |

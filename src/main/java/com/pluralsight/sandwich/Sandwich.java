@@ -138,11 +138,11 @@ public class Sandwich implements OrderItem {
         while (size == null) {
             System.out.println(ANSI_PINK + """
                     >>>>>>>> Select size of Sandwich: <<<<<<<<<<
-                                  ------------------
-                                 | 1) Four Inches   |
-                                 | 2) Eight Inches  |
-                                 | 3) Twelve Inches |
-                                  ------------------""" + ANSI_RESET);
+                                  ----------------------------
+                                 | 1) Four Inches      $(5.50)|
+                                 | 2) Eight Inches     $(7.00)|
+                                 | 3) Twelve Inches    $(8.50)|
+                                  ----------------------------""" + ANSI_RESET);
             char sizeChoice = Utils.getCharInput();
             switch (sizeChoice) {
                 case '1':

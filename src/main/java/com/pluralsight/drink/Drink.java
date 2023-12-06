@@ -32,11 +32,11 @@ public class Drink implements OrderItem {
                 >>>>>>>> What size of the Drink would you prefer? <<<<<<<<""" + ANSI_RESET);
         int drinkSize = Utils.getIntInput(ANSI_PINK + """
                                
-                                             -----------
-                                            | 1) Small  |
-                                            | 2) Medium |
-                                            | 3) Large  |
-                                             -----------
+                                             ---------------------
+                                            | 1) Small      $(2.00)|
+                                            | 2) Medium     $(2.50)|
+                                            | 3) Large      $(3.00)|
+                                             ----------------------
                                 """ + ANSI_RESET, 0, 4);
         DrinkSize drinks = DrinkSize.values()[drinkSize - 1];
         System.out.print(ANSI_YELLOW + """

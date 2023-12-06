@@ -8,6 +8,7 @@
  - [User Guide](#user-guide)
 - [Developer Documentation](#developer-documentation)
 - [UML Diagram](#uml-diagram)
+- [Interesting piece of code](#interesting-piece-of-code)
 - [Credits](#credits)
 - [Acknowledgement](#acknowledgement)
 
